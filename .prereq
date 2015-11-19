@@ -1,0 +1,17 @@
+Square.o: Square.cpp Square.h Piece.h Movement.h Exceptions.h
+Game.o: Game.cpp Game.h Board.h Square.h Piece.h Movement.h Exceptions.h
+Board.o: Board.cpp Board.h Square.h Piece.h Movement.h Exceptions.h
+Piece.o: Piece.cpp Piece.h Movement.h
+Chess.o: Chess.cpp Chess.h Game.h Board.h Square.h Piece.h Movement.h \
+ ChessBoard.h Exceptions.h KingMovement.h PawnMovement.h RookMovement.h \
+ BishopMovement.h QueenMovement.h
+KingMovement.o: KingMovement.cpp KingMovement.h Movement.h Exceptions.h
+RookMovement.o: RookMovement.cpp RookMovement.h Movement.h Exceptions.h
+PawnMovement.o: PawnMovement.cpp PawnMovement.h Movement.h Exceptions.h \
+ Game.h Board.h Square.h Piece.h
+QueenMovement.o: QueenMovement.cpp QueenMovement.h Movement.h \
+ Exceptions.h
+BishopMovement.o: BishopMovement.cpp BishopMovement.h Movement.h \
+ Exceptions.h
+ChessBoard.o: ChessBoard.cpp ChessBoard.h Board.h Square.h Piece.h \
+ Movement.h Game.h Exceptions.h
