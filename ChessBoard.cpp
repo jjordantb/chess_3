@@ -47,6 +47,11 @@ void ChessBoard::movePiece(Square* s, Square* d) const {
 		|| (p->symbol == 'P' && sCoord->y < eCoord->y)) {
 				throw invalid_move_error("Pawn cannot move backwards.");
 	} else {
+		//Check if theres a piece and if there is kill it
+		if (board[d->row][d->col].getPiece() != NULL) {
+				std::cout << "CALLED" << std::endl;
+			board[d->row][d->col].getPiece()->kill();
+		}
 		board[d->row][d->col].setPiece(p);
 		board[s->row][s->col].removePiece();
 	}

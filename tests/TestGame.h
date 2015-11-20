@@ -17,7 +17,7 @@ class TestGame : public CppUnit::TestFixture {
   CPPUNIT_TEST_SUITE_END();
 
 private:
-  Game* game;
+  Chess* game;
 
 public:
   void setUp();

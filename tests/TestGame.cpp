@@ -19,10 +19,10 @@ void TestGame::testSetup() {
 }
 
 void TestGame::testIsOver() {
-  // Setup the board
-  game->setup();
-  game->board->getSquare(0, 2)->removePiece();
-  game->board->draw(std::cout);
+
+  game->board->placePiece(game->bKing, game->board->getSquare(5, 2));
+  game->board->placePiece(game->wPawns.at(0), game->board->getSquare(4, 2));
+  game->board->movePiece(game->board->getSquare(4, 2), game->board->getSquare(5, 2));
   CPPUNIT_ASSERT(game->isOver());
 
 }

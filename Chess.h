@@ -44,6 +44,7 @@ private:
 	std::vector<Piece*> wBishops; /*!< the White Bishops */
 	std::vector<Piece*> bBishops; /*!< the Black Bishops */
 
+	friend class TestGame;
 };
 
 #endif /* CHESS_H_ */
