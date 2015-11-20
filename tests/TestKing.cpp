@@ -3,9 +3,9 @@
 CPPUNIT_TEST_SUITE_REGISTRATION(TestKing);
 
 void TestKing::setUp() {
-  board = new ChessBoard(3, 3);
+  board = new ChessBoard(5, 5);
   piece = new Piece(Piece::white, 'k', new KingMovement());
-  board->placePiece(piece, board->getSquare(0, 1));
+  board->placePiece(piece, board->getSquare(2, 2));
 }
 
 void TestKing::tearDown() {
@@ -15,22 +15,37 @@ void TestKing::tearDown() {
 
 void TestKing::testMovement() {
 
-  // A correct move
-  board->movePiece(board->getSquare(0, 1), board->getSquare(1, 1));
+  /*
+   * One square moves, valid.
+   */
+
+  //Vertical
+  board->movePiece(board->getSquare(2, 2), board->getSquare(3, 2));
+  CPPUNIT_ASSERT(board->getSquare(3, 2)->getPiece() == piece);
+  board->movePiece(board->getSquare(3, 2), board->getSquare(2, 2));
+  CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == piece);
+
+  //Horizontal
+  board->movePiece(board->getSquare(2, 2), board->getSquare(2, 3));
+  CPPUNIT_ASSERT(board->getSquare(2, 3)->getPiece() == piece);
+  board->movePiece(board->getSquare(2, 3), board->getSquare(2, 2));
+  CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == piece);
+
+  //Diagonal
+  board->movePiece(board->getSquare(2, 2), board->getSquare(3, 3));
+  CPPUNIT_ASSERT(board->getSquare(3, 3)->getPiece() == piece);
+  board->movePiece(board->getSquare(3, 3), board->getSquare(2, 2));
+  CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == piece);
+
+  board->movePiece(board->getSquare(2, 2), board->getSquare(1, 1));
   CPPUNIT_ASSERT(board->getSquare(1, 1)->getPiece() == piece);
-
-  //Throws can't move backwards exception
-  // board->movePiece(board->getSquare(1, 1), board->getSquare(0, 1));
-  // CPPUNIT_ASSERT(board->getSquare(0, 1)->getPiece() == NULL);
-
-  //Throws can't move diagonal exception
-  // board->movePiece(board->getSquare(1, 1), board->getSquare(2, 2));
-  // CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == NULL);
+  board->movePiece(board->getSquare(1, 1), board->getSquare(2, 2));
+  CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == piece);
 
 }
 
 void TestKing::testConstructor() {
 
-  CPPUNIT_ASSERT(board->getSquare(0, 1)->getPiece() == piece);
+  CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == piece);
 
 }

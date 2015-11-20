@@ -46,20 +46,24 @@ void TestQueen::testMovement() {
 
   board->movePiece(board->getSquare(2, 2), board->getSquare(4, 4));
   CPPUNIT_ASSERT(board->getSquare(4, 4)->getPiece() == piece);
-  board->movePiece(board->getSquare(4, 3), board->getSquare(2, 2));
+  board->movePiece(board->getSquare(4, 4), board->getSquare(2, 2));
   CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == piece);
 
   //Vertial
-  board->movePiece(board->getSquare(2, 2), board->getSquare(3, 2));
-  CPPUNIT_ASSERT(board->getSquare(3, 2)->getPiece() == piece);
-  board->movePiece(board->getSquare(3, 2), board->getSquare(2, 2));
+  board->movePiece(board->getSquare(2, 2), board->getSquare(4, 2));
+  CPPUNIT_ASSERT(board->getSquare(4, 2)->getPiece() == piece);
+  board->movePiece(board->getSquare(4, 2), board->getSquare(2, 2));
   CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == piece);
 
   //Horizontal
-  board->movePiece(board->getSquare(2, 2), board->getSquare(2, 3));
-  CPPUNIT_ASSERT(board->getSquare(2, 3)->getPiece() == piece);
-  board->movePiece(board->getSquare(2, 3), board->getSquare(2, 2));
+  board->movePiece(board->getSquare(2, 2), board->getSquare(2, 4));
+  CPPUNIT_ASSERT(board->getSquare(2, 4)->getPiece() == piece);
+  board->movePiece(board->getSquare(2, 4), board->getSquare(2, 2));
   CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == piece);
+
+  //Purpose failure
+  // board->movePiece(board->getSquare(2, 2), board->getSquare(3, 4));
+  // CPPUNIT_ASSERT(board->getSquare(3, 4)->getPiece() != piece);
 
 }
 
