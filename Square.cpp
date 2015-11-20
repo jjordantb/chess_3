@@ -23,6 +23,7 @@ void Square::setPiece(Piece* p) {
 	if (piece != NULL) {
 		if (p->player == piece->player)
 			throw invalid_move_error("Taking own piece");
+		piece->kill();
 	}
 	piece = p;
 }

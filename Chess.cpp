@@ -101,8 +101,7 @@ void Chess::setup() const {
  * Game is over if one of the kings is killed
  */
 bool Chess::isOver() const {
-
-	return (wKing->isAlive() == false || bKing->isAlive() == false);
+	return wKing->isAlive() == false || bKing->isAlive() == false;
 }
 
 Square* Chess::getSquare(std::istream &is) const {
@@ -129,4 +128,3 @@ Square* Chess::getSquare(std::istream &is) const {
 
 	return board->getSquare(row, col);
 }
-
