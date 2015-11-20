@@ -11,7 +11,7 @@ void TestGame::tearDown() {
 }
 
 void TestGame::testConstructor() {
-
+  CPPUNIT_ASSERT(game != NULL);
 }
 
 void TestGame::testSetup() {
@@ -19,6 +19,11 @@ void TestGame::testSetup() {
 }
 
 void TestGame::testIsOver() {
+  // Setup the board
+  game->setup();
+  game->board->getSquare(0, 2)->removePiece();
+  game->board->draw(std::cout);
+  CPPUNIT_ASSERT(game->isOver());
 
 }
 
