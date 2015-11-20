@@ -42,6 +42,13 @@ void TestKing::testMovement() {
   board->movePiece(board->getSquare(1, 1), board->getSquare(2, 2));
   CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == piece);
 
+  /*
+   * Fail Movement
+   */
+  // board->movePiece(board->getSquare(2, 2), board->getSquare(0, 0));
+  // CPPUNIT_ASSERT(board->getSquare(0, 0)->getPiece() == piece);
+
+
 }
 
 void TestKing::testConstructor() {
