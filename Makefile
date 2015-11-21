@@ -9,7 +9,7 @@ TEST_OBJS= $(TEST_SRC)/RunTests.o $(TEST_SRC)/TestPawn.o $(TEST_SRC)/TestKing.o 
 
 INCLUDE= -I .
 
-GCOV = gcov11
+GCOV = gcov
 COVERAGE_RESULTS = result.coverage
 
 PROGRAM=Chess2720
@@ -59,7 +59,7 @@ test-memcheck: $(PROGRAM_TEST)
 	valgrind --leak-check=yes $(PROGRAM_TEST) &> results
 	more results
 
-coverage: test
+coverage: $(PROGRAM_TEST)
 	$(GCOV) *.cpp
 	cd $(TEST_SRC)
 	$(GCOV) *.cpp

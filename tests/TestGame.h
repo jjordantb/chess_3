@@ -13,7 +13,6 @@ class TestGame : public CppUnit::TestFixture {
   CPPUNIT_TEST(testSetup);
   CPPUNIT_TEST(testIsOver);
   CPPUNIT_TEST(testTurn);
-  CPPUNIT_TEST(testPlay);
   CPPUNIT_TEST_SUITE_END();
 
 private:
@@ -24,11 +23,9 @@ public:
   void tearDown();
 
   void testConstructor();
-
   void testSetup();
   void testIsOver();
   void testTurn();
-  void testPlay();
 
 };
 
