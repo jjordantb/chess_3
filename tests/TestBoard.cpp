@@ -16,6 +16,7 @@ void TestBoard::setUp() {
 
 void TestBoard::tearDown() {
   delete board;
+  delete wPiece;
 }
 
 void TestBoard::testPlacePiece() {

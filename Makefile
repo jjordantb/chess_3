@@ -1,4 +1,4 @@
-CC=g++
+CC=g++11
 CFLAGS=-Wall -g -std=c++11 -fprofile-arcs -ftest-coverage
 
 TEST_SRC=tests
@@ -9,7 +9,7 @@ TEST_OBJS= $(TEST_SRC)/RunTests.o $(TEST_SRC)/TestPawn.o $(TEST_SRC)/TestKing.o 
 
 INCLUDE= -I .
 
-GCOV = gcov
+GCOV = gcov11
 COVERAGE_RESULTS = result.coverage
 
 PROGRAM=Chess2720

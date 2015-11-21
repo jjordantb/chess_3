@@ -23,10 +23,12 @@ void ChessBoard::movePiece(Square* s, Square* d) const {
 	board[d->row][d->col].removePiece();
 
 	// Check it is player's piece to move
-	if (p->player == Piece::white && Game::turn % 2 != 0)
+	if (p->player == Piece::white && Game::turn % 2 != 0) {
 		throw invalid_move_error("Black moving white");
-	if (p->player == Piece::black && Game::turn % 2 != 1)
+	}
+	if (p->player == Piece::black && Game::turn % 2 != 1) {
 		throw invalid_move_error("White moving black");
+	}
 
 	// Check nothing in way
 	const Coord* sCoord = new Coord(s->col, s->row);
@@ -36,12 +38,14 @@ void ChessBoard::movePiece(Square* s, Square* d) const {
 	for (unsigned i = 1; i < piecePath.size(); i++) {
 		const Coord* c = piecePath.at(i);
 		Piece* p = getSquare(c->y, c->x)->getPiece();
-		if (p != NULL)
+		if (p != NULL) {
 			throw invalid_move_error("Cannot jump over pieces.");
+		}
 	}
 
-	for (unsigned int i = 0; i < piecePath.size(); i++)
+	for (unsigned int i = 0; i < piecePath.size(); i++) {
 		delete piecePath.at(i);
+	}
 
 	if ((p->symbol == 'p' && sCoord->y > eCoord->y)
 		|| (p->symbol == 'P' && sCoord->y < eCoord->y)) {
