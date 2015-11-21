@@ -1,3 +1,10 @@
+/*
+ * RunTests.cpp
+ *
+ *  Created on: Nov 18, 2015
+ *      Author: Jordan Florchinger
+ */
+
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/ui/text/TestRunner.h>

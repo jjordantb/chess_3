@@ -1,3 +1,10 @@
+/*
+ * TestQueen.h
+ *
+ *  Created on: Nov 18, 2015
+ *      Author: Jordan Florchinger
+ */
+
 #ifndef TESTQUEEN_H
 #define TESTQUEEN_H
 

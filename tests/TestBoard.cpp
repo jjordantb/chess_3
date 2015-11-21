@@ -1,3 +1,10 @@
+/*
+ * TestBoard.cpp
+ *
+ *  Created on: Nov 18, 2015
+ *      Author: Jordan Florchinger
+ */
+
 #include "TestBoard.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION( TestBoard );
@@ -23,11 +30,7 @@ void TestBoard::testMovePiece() {
   board->placePiece(wPiece, board->getSquare(0, 1));
   board->movePiece(board->getSquare(0, 1), board->getSquare(1, 1));
   CPPUNIT_ASSERT(board->getSquare(1, 1)->getPiece() == wPiece);
-
-  //Offboard move
-  // board->movePiece(board->getSquare(1, 1), board->getSquare(5, 5));
-  // CPPUNIT_ASSERT(board->getSquare(5, 5) == NULL);
-
+  CPPUNIT_ASSERT_THROW(board->movePiece(board->getSquare(1, 1), board->getSquare(5, 5)), invalid_coordinates_error);
 }
 
 void TestBoard::testConstructor() {

@@ -1,3 +1,11 @@
+/*
+ * TestBishop.cpp
+ *
+ *  Created on: Nov 18, 2015
+ *      Author: Jordan Florchinger
+ */
+
+
 #include "TestBishop.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION(TestBishop);

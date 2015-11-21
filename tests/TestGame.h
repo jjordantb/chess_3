@@ -1,3 +1,10 @@
+/*
+ * TestGame.h
+ *
+ *  Created on: Nov 18, 2015
+ *      Author: Jordan Florchinger
+ */
+
 #ifndef TESTGAME_H
 #define TESTGAME_H
 

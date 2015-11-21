@@ -1,3 +1,10 @@
+/*
+ * TestRook.h
+ *
+ *  Created on: Nov 18, 2015
+ *      Author: Jordan Florchinger
+ */
+
 #ifndef TESTROOK_H
 #define TESTROOK_H
 

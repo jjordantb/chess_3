@@ -1,3 +1,10 @@
+/*
+ * TestBishop.h
+ *
+ *  Created on: Nov 18, 2015
+ *      Author: Jordan Florchinger
+ */
+
 #ifndef TESTBISHOP_H
 #define TESTBISHOP_H
 

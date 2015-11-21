@@ -1,3 +1,10 @@
+/*
+ * TestKing.h
+ *
+ *  Created on: Nov 18, 2015
+ *      Author: Jordan Florchinger
+ */
+
 #ifndef TESTKING_H
 #define TESTKING_H
 
