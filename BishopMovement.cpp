@@ -9,7 +9,7 @@
 #include "Exceptions.h"
 
 std::vector<const Coord*> BishopMovement::path(const Coord* s, const Coord* e) {
-	if (s->x == e->x || s->y == e->y)
+	if (abs(s->x - e->x) != abs(s->y - e->y))
 		throw invalid_move_error("Bishops can only move diagonally");
 
 	int xDirection = (s->x < e->x) ? 1 : -1;
