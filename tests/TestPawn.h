@@ -6,12 +6,15 @@
 #include "../Piece.h"
 #include "../ChessBoard.h"
 #include "../PawnMovement.h"
+#include "../Exceptions.h"
 
 class TestPawn : public CppUnit::TestFixture {
 
   CPPUNIT_TEST_SUITE(TestPawn);
   CPPUNIT_TEST(testConstructor);
-  CPPUNIT_TEST(testMovement);
+  CPPUNIT_TEST(testForward);
+  CPPUNIT_TEST(testReverse);
+  CPPUNIT_TEST(testDiagonal);
   CPPUNIT_TEST_SUITE_END();
 
 private:
@@ -21,7 +24,9 @@ private:
 public:
   void setUp();
   void tearDown();
-  void testMovement();
+  void testForward();
+  void testReverse();
+  void testDiagonal();
   void testConstructor();
 
 };

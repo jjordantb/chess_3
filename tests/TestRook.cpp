@@ -13,10 +13,7 @@ void TestRook::tearDown() {
   delete piece;
 }
 
-void TestRook::testMovement() {
-
-  // A correct move
-  // Horizontal
+void TestRook::testHorizontal() {
   board->movePiece(board->getSquare(2, 2), board->getSquare(2, 0));
   CPPUNIT_ASSERT(board->getSquare(2, 0)->getPiece() == piece);
 
@@ -25,8 +22,9 @@ void TestRook::testMovement() {
 
   board->movePiece(board->getSquare(2, 4), board->getSquare(2, 2));
   CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == piece);
+}
 
-  //Vertical
+void TestRook::testVertical() {
   board->movePiece(board->getSquare(2, 2), board->getSquare(0, 2));
   CPPUNIT_ASSERT(board->getSquare(0, 2)->getPiece() == piece);
 
@@ -35,21 +33,17 @@ void TestRook::testMovement() {
 
   board->movePiece(board->getSquare(4, 2), board->getSquare(2, 2));
   CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == piece);
+}
 
-  // Diagonal / Other move for error
-  // board->movePiece(board->getSquare(2, 2), board->getSquare(3, 3));
-  // CPPUNIT_ASSERT(board->getSquare(3, 3)->getPiece() == piece);
+void TestRook::testDiagonal() {
+  CPPUNIT_ASSERT_THROW(board->movePiece(board->getSquare(2, 2), board->getSquare(3, 3)), invalid_move_error);
+  CPPUNIT_ASSERT_THROW(board->movePiece(board->getSquare(2, 2), board->getSquare(0, 0)), invalid_move_error);
+}
 
-  // board->movePiece(board->getSquare(2, 2), board->getSquare(0, 0));
-  // CPPUNIT_ASSERT(board->getSquare(0, 0)->getPiece() == piece);
-
-  // board->movePiece(board->getSquare(2, 2), board->getSquare(3, 4));
-  // CPPUNIT_ASSERT(board->getSquare(3, 4)->getPiece() == piece);
-
+void TestRook::testOther() {
+  CPPUNIT_ASSERT_THROW(board->movePiece(board->getSquare(2, 2), board->getSquare(3, 4)), invalid_move_error);
 }
 
 void TestRook::testConstructor() {
-
   CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == piece);
-
 }

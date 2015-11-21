@@ -13,9 +13,15 @@ void TestBishop::tearDown() {
   delete piece;
 }
 
-void TestBishop::testMovement() {
+void TestBishop::testHorizontal() {
+  CPPUNIT_ASSERT_THROW(board->movePiece(board->getSquare(0, 0), board->getSquare(0, 1)), invalid_move_error);
+}
 
-  // Correct moves
+void TestBishop::testVertical() {
+  CPPUNIT_ASSERT_THROW(board->movePiece(board->getSquare(0, 0), board->getSquare(1, 0)), invalid_move_error);
+}
+
+void TestBishop::testDiagonal() {
   board->movePiece(board->getSquare(0, 0), board->getSquare(3, 3));
   CPPUNIT_ASSERT(board->getSquare(3, 3)->getPiece() == piece);
 
@@ -33,18 +39,12 @@ void TestBishop::testMovement() {
 
   board->movePiece(board->getSquare(1, 3), board->getSquare(2, 2));
   CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == piece);
+}
 
-  // Incorrect moves, vertical/horizontal
-  // board->movePiece(board->getSquare(2, 2), board->getSquare(3, 2));
-  // CPPUNIT_ASSERT(board->getSquare(3, 2)->getPiece() != piece);
-  //
-  // board->movePiece(board->getSquare(2, 2), board->getSquare(2, 3));
-  // CPPUNIT_ASSERT(board->getSquare(2, 3)->getPiece() != piece);
-
+void TestBishop::testOther() {
+  CPPUNIT_ASSERT_THROW(board->movePiece(board->getSquare(0, 0), board->getSquare(2, 3)), invalid_move_error);
 }
 
 void TestBishop::testConstructor() {
-
   CPPUNIT_ASSERT(board->getSquare(0, 0)->getPiece() == piece);
-
 }

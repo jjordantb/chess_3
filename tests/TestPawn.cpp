@@ -13,24 +13,20 @@ void TestPawn::tearDown() {
   delete piece;
 }
 
-void TestPawn::testMovement() {
-
-  // A correct move
+void TestPawn::testForward() {
   board->movePiece(board->getSquare(0, 1), board->getSquare(1, 1));
   CPPUNIT_ASSERT(board->getSquare(1, 1)->getPiece() == piece);
+}
 
-  //Throws can't move backwards exception
-  // board->movePiece(board->getSquare(1, 1), board->getSquare(0, 1));
-  // CPPUNIT_ASSERT(board->getSquare(0, 1)->getPiece() == NULL);
+void TestPawn::testReverse() {
+  CPPUNIT_ASSERT_THROW(board->movePiece(board->getSquare(1, 1), board->getSquare(0, 1)), invalid_piece_error);
+}
 
-  //Throws can't move diagonal exception
-  // board->movePiece(board->getSquare(1, 1), board->getSquare(2, 2));
-  // CPPUNIT_ASSERT(board->getSquare(2, 2)->getPiece() == NULL);
-
+void TestPawn::testDiagonal() {
+  CPPUNIT_ASSERT_THROW(board->movePiece(board->getSquare(1, 1), board->getSquare(2, 2)), invalid_piece_error);
 }
 
 void TestPawn::testConstructor() {
-
   CPPUNIT_ASSERT(board->getSquare(0, 1)->getPiece() == piece);
 
 }
